@@ -4,29 +4,40 @@ import { RootTabScreenProps } from '../types';
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 import { Audio } from 'expo-av';
 import { useState, useEffect} from 'react';
+import { Sound } from 'expo-av/build/Audio';
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
 
-  // const [sound, setSound] = useState();
+  const [sound, setSound] = useState<Sound | any>();
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  // async function playSound() {
-  //   console.log('Loading Sound');
-  //   const { sound } = await Audio.Sound.createAsync( require('./assets/sounds/song-1.mp3')
-  //   );
-  //   setSound(sound);
+  async function playSound(flag: boolean) {
+    if (!isPlaying) {
+      Audio.setAudioModeAsync({
+        playsInSilentModeIOS: true,
+      })
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync(require('../assets/sounds/song-1.mp3'));
+      setSound(sound);
 
-  //   console.log('Playing Sound');
-  //   await sound.playAsync();
-  // }
+      console.log('Playing Sound');
+      await sound.playAsync();
+      setIsPlaying(true)
+    } else {
+      setIsPlaying(false)
+      setSound(null)
+    }
+  }
 
-  // useEffect(() => {
-  //   return sound
-  //     ? () => {
-  //         console.log('Unloading Sound');
-  //         sound.unloadAsync();
-  //       }
-  //     : undefined;
-  // }, [sound]);
+  useEffect(() => {
+    return sound
+      ? () => {
+          console.log('Unloading Sound');
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
+
 
   return (
     <ScrollView>
@@ -37,7 +48,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
           </Card.Content>
           <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
           <Card.Actions>
-            <Button>Play</Button>
+            <Button onPress={() => playSound(isPlaying)}>Play</Button>
           </Card.Actions>
         </Card>
       <Card>
