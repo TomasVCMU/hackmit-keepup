@@ -46,44 +46,43 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
           <Card.Content>
             <Title>I was just listening to this cool song </Title>
           </Card.Content>
-          <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+          <Card.Cover source={require('../assets/images/maxresdefault.jpeg')} />
           <Card.Actions>
             <Button onPress={() => playSound(isPlaying)}>Play</Button>
           </Card.Actions>
         </Card>
       <Card>
-        <Card.Title title="Tomas" left={(props) => <Avatar.Image {...props} source={require('../assets/images/girl.jpeg')} />} />
+        <Card.Title title="Tomas" left={(props) => <Avatar.Image {...props} source={require('../assets/images/man2.jpeg')} />} />
         <Card.Content>
-          <Title>I was just listening to this cool song </Title>
+          <Title> this video is so dope </Title>
+        </Card.Content>
+        <Card.Actions>
+          <Button>Play</Button>
+        </Card.Actions>
+      </Card><Card>
+        <Card.Title title="James" left={(props) => <Avatar.Image {...props} source={require('../assets/images/man4.jpeg')} />} />
+        <Card.Content>
+          <Title> this tiktok trend made me die laughing </Title>
         </Card.Content>
         <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
         <Card.Actions>
           <Button>Play</Button>
         </Card.Actions>
       </Card><Card>
-        <Card.Title title="James" left={(props) => <Avatar.Image {...props} source={require('../assets/images/girl.jpeg')} />} />
-        <Card.Content>
-          <Title> this tiktok trend is so cringe </Title>
-        </Card.Content>
-        <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
-        <Card.Actions>
-          <Button>Play</Button>
-        </Card.Actions>
-      </Card><Card>
-        <Card.Title title="Connie" left={(props) => <Avatar.Image {...props} source={require('../assets/images/girl.jpeg')} />} />
+        <Card.Title title="Connie" left={(props) => <Avatar.Image {...props} source={require('../assets/images/woman3.jpeg')} />} />
         <Card.Content>
           <Title> this youtube vid is so funny LOL </Title>
         </Card.Content>
-        <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+        <Card.Cover source={{ uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg' }} />
         <Card.Actions>
           <Button>Play</Button>
         </Card.Actions>
       </Card><Card>
-        <Card.Title title="Anne" left={(props) => <Avatar.Image {...props} source={require('../assets/images/girl.jpeg')} />} />
+        <Card.Title title="Anne" left={(props) => <Avatar.Image {...props} source={require('../assets/images/woman.jpeg')} />} />
         <Card.Content>
           <Title>I just watched this really cool show on Netflix! </Title>
         </Card.Content>
-        <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+        <Card.Cover source={{ uri: 'https://www.joblo.com/wp-content/uploads/2021/06/stranger-things-season-4-cast-announcement.jpg' }} />
         <Card.Actions>
           <Button>Play</Button>
         </Card.Actions>
